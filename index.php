@@ -56,8 +56,8 @@
       <?php
         }
       ?>
-
-<?php
+      
+      <?php
         if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'editado'){
 
       ?>
@@ -68,6 +68,21 @@
       <?php
         }
       ?>
+
+
+      <?php
+        if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado'){
+
+      ?>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong> ¡Eliminado..!</strong> El registro ha sido Eliminado exitosamente
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> </button>
+      </div>
+      <?php
+        }
+      ?>
+
+      
 
 
 
@@ -103,8 +118,10 @@
                     <td><?php echo $dato->nombre;?></td>
                     <td><?php echo $dato->edad;?></td>
                     <td><?php echo $dato->signo;?></td>
-                    <td class="text-success"><a href="editar.php?codigo=<?php echo $dato->codigo;?>"><i class="bi bi-pencil-square"></i></a></td>
-                    <td class="text-danger"><i class="bi bi-trash-fill"></i></td>
+                    <td ><a class="text-success" href="editar.php?codigo=<?php echo $dato->codigo;?>"><i class="bi bi-pencil-square"></i></a></td>
+                    <td ><a onclick="return confirm('¿Esta seguro de Eliminar el Registro?');" class="text-danger" href="eliminar.php?codigo=<?php echo $dato->codigo;?>"><i class="bi bi-trash-fill"></i></a></td>
+                    
+                   
                   </tr>
 
                   <?php
