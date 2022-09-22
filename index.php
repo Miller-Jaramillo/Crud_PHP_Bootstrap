@@ -1,5 +1,18 @@
 <?php include 'template/header.php' ?>
 
+<?php 
+
+    include_once "model/conexion.php";
+    $sentencia = $bd -> query("select * from persona");
+    $persona = $sentencia->fetchAll(PDO::FETCH_OBJ);
+    
+
+
+
+?>
+
+
+
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-7">
@@ -22,15 +35,26 @@
                 </thead>
 
                 <tbody>
+
+                  <?php
+                  foreach($persona as $dato){
+                  ?>
+
+
                   <tr class="">
-                    <td scope="row">1</td>
-                    <td>Miller Jaramillo</td>
-                    <td>25</td>
-                    <td>Acuario</td>
+                    <td scope="row"><?php echo $dato->codigo;?></td>
+                    <td><?php echo $dato->nombre;?></td>
+                    <td><?php echo $dato->edad;?></td>
+                    <td><?php echo $dato->signo;?></td>
                     <td>Editar</td>
                     <td>Elimnar</td>
 
                   </tr>
+
+                  <?php
+                  }
+                  ?>
+
                 </tbody>
           </table>
 
