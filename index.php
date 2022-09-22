@@ -16,6 +16,38 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-7">
+      
+      <!-- inicio alerta -->
+      <?php
+        if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'faltallenar'){
+
+      ?>
+
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong> ¡Ojo Pues...!</strong> Llena todos los campos
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> </button>
+      </div>
+
+      <?php
+        }
+      ?>
+      
+      <?php
+        if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'registrado'){
+
+      ?>
+
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong> ¡Registrado...!</strong> Se ha registrado exitosamente 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> </button>
+      </div>
+
+      <?php
+        }
+      ?>
+
+      <!-- fin alerta -->
+
       <div class="card">
         <div class="card-header">
           Lista Personas
@@ -66,18 +98,18 @@
         <div class="card-header">
           Ingresar datos:
         </div>
-        <form action="" class="p-2" method="POST" action="registrar.php">
+        <form class="p-2" method="POST" action="registrar.php">
         <div class="mb-3">
           <label class="form-label">Nombre: </label>
-          <input type="text" class="form-control" name="txtNombre" autofocus>
+          <input type="text" class="form-control" name="txtNombre" autofocus required>
         </div>
         <div class="mb-3">
           <label class="form-label">Edad: </label>
-          <input type="number" class="form-control" name="txtEdad" autofocus>
+          <input type="number" class="form-control" name="txtEdad" autofocus required>
         </div>
         <div class="mb-3">
           <label class="form-label">Signo: </label>
-          <input type="text" class="form-control" name="txtSigno" autofocus>
+          <input type="text" class="form-control" name="txtSigno" autofocus required>
         </div>
         <div class="d-grid">
           <input type="hidden" name="oculto" value="1">
