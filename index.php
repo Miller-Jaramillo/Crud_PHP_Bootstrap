@@ -45,6 +45,31 @@
       <?php
         }
       ?>
+      <?php
+        if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error'){
+
+      ?>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong> ¡Error...!</strong> Vuelve a Intentar
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> </button>
+      </div>
+      <?php
+        }
+      ?>
+
+<?php
+        if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'editado'){
+
+      ?>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong> ¡Perfecto...!</strong> El registro ha sido actualizado exitosamente
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> </button>
+      </div>
+      <?php
+        }
+      ?>
+
+
 
       <!-- fin alerta -->
 
@@ -78,9 +103,8 @@
                     <td><?php echo $dato->nombre;?></td>
                     <td><?php echo $dato->edad;?></td>
                     <td><?php echo $dato->signo;?></td>
-                    <td>Editar</td>
-                    <td>Elimnar</td>
-
+                    <td class="text-success"><a href="editar.php?codigo=<?php echo $dato->codigo;?>"><i class="bi bi-pencil-square"></i></a></td>
+                    <td class="text-danger"><i class="bi bi-trash-fill"></i></td>
                   </tr>
 
                   <?php
